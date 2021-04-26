@@ -13,14 +13,20 @@ while True:
   userAnswer = input()
 
   if userAnswer == "add":
-    UserDate = input("Введите дату:\n")
-    UserTask = input("Что нужно делать?")
+    userDate = input("Введите дату:\n")
+    userTask = input("Что нужно делать?")
+
+  if userDate in todo.keys():
+    todo[ userDate ].append( userTask )
+  else:
+    todo[ userDate ] = [ userTask]
     todo[ userDate ] = userTask
     print(f"[ {userDate} ] - добавлена задача'{userTask}'")
   elif userAnswer == "help":
     print(HELP)
   elif userAnswer == "show":
-    print("Работает\n")
+    for date in todo.keys():
+      print(f"[ {date} ] -\t { todo [date] }")
   elif userAnswer == "exit":
     break
   elif userAnswer == "done":
