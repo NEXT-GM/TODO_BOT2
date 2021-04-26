@@ -17,16 +17,17 @@ def checkDate(date):
     time.strptime(date, "%d.%m.%Y")
     return True 
   except ValueError:
-  print("Error. Не правильный формат даты")
-  return False
+    print("Error. Не правильный формат даты")
+    return False
 
-print ("Введите команду, введите help для вывода списка команд")
-
-while True:
-  userAnswer = input()
-
-  if userAnswer == "add":
-    userDate = input("Введите дату:\n")
+def add(command, userAnswer):
+  if command == 1:
+    #Получить дату
+  elif command == 2:
+    #получить task и добавить в todo
+  userDate = input("Введите дату:\n")
+    if checkDate(userDate) == Flask:
+      continue
     userTask = input("Что нужно делать?")
 
     if userDate in todo.keys():
@@ -35,6 +36,13 @@ while True:
       todo[ userDate ] = [ userTask]
       todo[ userDate ] = [ userTask ]
     print(f"[ {userDate} ] - добавлена задача'{userTask}'")
+print ("Введите команду, введите help для вывода списка команд")
+
+while True:
+  userAnswer = input()
+
+  if userAnswer == "add":
+    
   elif userAnswer == "help":
     print(HELP)
   elif userAnswer == "show":
